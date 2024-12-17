@@ -1,8 +1,5 @@
+import { Box } from "@mui/material";
+
 export default function App() {
-  return (
-    <div>
-      {/* <Home /> */}
-      App
-    </div>
-  );
+  return <Box sx={{ height: "100%" }}>App</Box>;
 }
