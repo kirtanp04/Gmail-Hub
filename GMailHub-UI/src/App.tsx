@@ -1,5 +1,5 @@
-import { Box } from "@mui/material";
+import AppRouter from "./routes";
 
 export default function App() {
-  return <Box sx={{ height: "100%" }}>App</Box>;
+  return <AppRouter />;
 }
