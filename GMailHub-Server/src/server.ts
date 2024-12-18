@@ -1,15 +1,35 @@
-import express, { Request, Response } from "express";
+import Cluster, { Worker } from 'cluster';
 import dotenv from 'dotenv';
-import homeRoutes from "@/routes";
+import cpu from 'os';
+import { Express } from './ExpressServer';
 
-dotenv.config();
 
-const app = express();
-const PORT = 3000;
+const _CpuLength: number = cpu.availableParallelism();
 
-app.use(express.json());
-app.use("/", homeRoutes);
+const cluster: typeof Cluster = Cluster;
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+
+if (cluster.isPrimary) {
+    console.log(`Primary ${process.pid} is running`);
+
+    for (let i = 0; i < _CpuLength; i++) {
+        cluster.fork();
+    }
+
+    cluster.on('exit', (worker: Worker, code: number, signal: string) => {
+        console.log(`Worker ${worker.process.pid} died`);
+    });
+
+    cluster.on('disconnect', (worker: Worker) => {
+        cluster.fork(); // Fork a new worker on disconnect
+    });
+} else {
+
+    dotenv.config();
+
+    const _Server = new Express();
+
+    _Server.port = 8080;
+
+    _Server.listen();
+}
