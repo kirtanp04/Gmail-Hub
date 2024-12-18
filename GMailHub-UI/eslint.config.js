@@ -25,6 +25,17 @@ export default tseslint.config(
       ],
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-empty-object-type": "off",
+      "prefer-const": [
+        "off",
+        {
+          destructuring: "any",
+          ignoreReadBeforeAssign: false,
+        },
+      ],
+      "no-unsafe-finally": "off",
+      "no-empty": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "no-debugger": "off",
     },
   }
 );

@@ -1,3 +1,4 @@
+import { EMail } from "@/EMailService";
 import { Box, Container, styled, Typography, useTheme } from "@mui/material";
 
 export default function LandingPage() {
@@ -11,7 +12,20 @@ export default function LandingPage() {
       <Description variant="subtitle1">
         Seamlessly access and manage your Google emails on the web.
       </Description>
-      <LoginButton>Login with Google</LoginButton>
+      <LoginButton
+        onClick={() =>
+          EMail.UserLogin(
+            (res) => {
+              console.log(res);
+            },
+            (err) => {
+              console.log(err);
+            }
+          )
+        }
+      >
+        Login with Google
+      </LoginButton>
     </RootStyle>
   );
 }
