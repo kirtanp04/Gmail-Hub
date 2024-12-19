@@ -1,4 +1,4 @@
-import { HttpStatusCodes } from "../../../GMailHub-Server/src/common/HttpStatusCodes";
+
 
 export class ProjectResponse {
     data: any = '';
@@ -12,7 +12,7 @@ export class UserResponse {
 
     data: any
 
-    statusCode: HttpStatusCodes = HttpStatusCodes.OK
+    statusCode: number = 0
 
     Message: string = '';
 

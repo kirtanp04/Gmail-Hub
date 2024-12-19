@@ -55,34 +55,31 @@ export const inputsCustomizations: Components<Theme> = {
               variant: "contained",
             },
             style: {
-              color: "white",
-              backgroundColor: gray[900],
-              backgroundImage: `linear-gradient(to bottom, ${gray[700]}, ${gray[800]})`,
-              boxShadow: `inset 0 1px 0 ${gray[600]}, inset 0 -1px 0 1px hsl(220, 0%, 0%)`,
-              border: `1px solid ${gray[700]}`,
+              color: theme.palette.mode === "light" ? "white" : "black",
+              backgroundColor:
+                theme.palette.mode === "light" ? gray[900] : gray[50],
+              backgroundImage:
+                theme.palette.mode === "light"
+                  ? `linear-gradient(to bottom, ${gray[700]}, ${gray[800]})`
+                  : `linear-gradient(to bottom, ${gray[100]}, ${gray[50]})`,
+              boxShadow:
+                theme.palette.mode === "light"
+                  ? `inset 0 1px 0 ${gray[600]}, inset 0 -1px 0 1px hsl(220, 0%, 0%)`
+                  : "inset 0 -1px 0  hsl(220, 30%, 80%)",
+              border:
+                theme.palette.mode === "light"
+                  ? `1px solid ${gray[700]}`
+                  : `1px solid ${gray[50]}`,
               "&:hover": {
                 backgroundImage: "none",
-                backgroundColor: gray[700],
+                backgroundColor:
+                  theme.palette.mode === "light" ? gray[700] : gray[300],
                 boxShadow: "none",
               },
               "&:active": {
-                backgroundColor: gray[800],
+                backgroundColor:
+                  theme.palette.mode === "light" ? gray[800] : gray[400],
               },
-              ...theme.applyStyles("dark", {
-                color: "black",
-                backgroundColor: gray[50],
-                backgroundImage: `linear-gradient(to bottom, ${gray[100]}, ${gray[50]})`,
-                boxShadow: "inset 0 -1px 0  hsl(220, 30%, 80%)",
-                border: `1px solid ${gray[50]}`,
-                "&:hover": {
-                  backgroundImage: "none",
-                  backgroundColor: gray[300],
-                  boxShadow: "none",
-                },
-                "&:active": {
-                  backgroundColor: gray[400],
-                },
-              }),
             },
           },
           {
@@ -119,27 +116,22 @@ export const inputsCustomizations: Components<Theme> = {
             style: {
               color: theme.palette.text.primary,
               border: "1px solid",
-              borderColor: gray[200],
-              backgroundColor: alpha(gray[50], 0.3),
+              borderColor:
+                theme.palette.mode === "light" ? gray[200] : gray[700],
+              backgroundColor:
+                theme.palette.mode === "light"
+                  ? alpha(gray[50], 0.3)
+                  : gray[800],
               "&:hover": {
-                backgroundColor: gray[100],
-                borderColor: gray[300],
+                backgroundColor:
+                  theme.palette.mode === "light" ? gray[100] : gray[900],
+                borderColor:
+                  theme.palette.mode === "light" ? gray[300] : gray[600],
               },
               "&:active": {
-                backgroundColor: gray[200],
+                backgroundColor:
+                  theme.palette.mode === "light" ? gray[200] : gray[900],
               },
-              ...theme.applyStyles("dark", {
-                backgroundColor: gray[800],
-                borderColor: gray[700],
-
-                "&:hover": {
-                  backgroundColor: gray[900],
-                  borderColor: gray[600],
-                },
-                "&:active": {
-                  backgroundColor: gray[900],
-                },
-              }),
             },
           },
           {

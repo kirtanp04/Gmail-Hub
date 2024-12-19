@@ -1,27 +1,29 @@
-import { EMail } from "@/EMailService";
 import { Box, Container, styled, Typography, useTheme } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export default function LandingPage() {
   const theme = useTheme();
+  const navigate = useNavigate();
   return (
     <RootStyle>
       <Heading>
         Welcome to
-        <span style={{ color: theme.palette.primary.main }}>GMailHub</span>
+        <span style={{ color: theme.palette.primary.main }}> GMailHub</span>
       </Heading>
       <Description variant="subtitle1">
         Seamlessly access and manage your Google emails on the web.
       </Description>
       <LoginButton
         onClick={() =>
-          EMail.UserLogin(
-            (res) => {
-              console.log(res);
-            },
-            (err) => {
-              console.log(err);
-            }
-          )
+          // EMail.UserLogin(
+          //   (res) => {
+          //     console.log(res);
+          //   },
+          //   (err) => {
+          //     console.log(err);
+          //   }
+          // )
+          navigate("/dashboard")
         }
       >
         Login with Google

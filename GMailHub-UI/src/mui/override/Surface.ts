@@ -57,36 +57,29 @@ export const surfacesCustomizations: Components<Theme> = {
     },
     MuiCard: {
         styleOverrides: {
-            root: ({ theme }) => {
-                return {
-                    padding: 16,
-                    gap: 16,
-                    transition: 'all 100ms ease',
-                    backgroundColor: gray[50],
-                    borderRadius: theme.shape.borderRadius,
+            root: ({ theme }) => ({
+                padding: 16,
+                gap: 16,
+                transition: 'all 100ms ease',
+                backgroundColor: theme.palette.mode === 'dark' ? gray[800] : gray[50],
+                borderRadius: theme.shape.borderRadius,
+                border: `1px solid ${theme.palette.divider}`,
+                boxShadow: 'none',
+
+            }),
+        },
+        variants: [
+            {
+                props: { variant: 'outlined' },
+                style: ({ theme }) => ({
+
                     border: `1px solid ${theme.palette.divider}`,
                     boxShadow: 'none',
-                    ...theme.applyStyles('dark', {
-                        backgroundColor: gray[800],
-                    }),
-                    variants: [
-                        {
-                            props: {
-                                variant: 'outlined',
-                            },
-                            style: {
-                                border: `1px solid ${theme.palette.divider}`,
-                                boxShadow: 'none',
-                                background: 'hsl(0, 0%, 100%)',
-                                ...theme.applyStyles('dark', {
-                                    background: alpha(gray[900], 0.4),
-                                }),
-                            },
-                        },
-                    ],
-                };
+                    background: theme.palette.mode === 'dark' ? alpha(gray[900], 0.4) : 'hsl(0, 0%, 100%)',
+
+                }),
             },
-        },
+        ],
     },
     MuiCardContent: {
         styleOverrides: {

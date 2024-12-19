@@ -242,10 +242,10 @@ export const getDesignTokens = (mode: PaletteMode): any => {
 
 
 
-
-export const colorSchemes = {
+export const colorSchemes: any = {
     light: {
         palette: {
+            mode: "light",
             primary: {
                 light: brand[200],
                 main: brand[400],
@@ -284,7 +284,7 @@ export const colorSchemes = {
             text: {
                 primary: gray[800],
                 secondary: gray[600],
-                warning: orange[400],
+                // warning: orange[400],
             },
             action: {
                 hover: alpha(gray[200], 0.2),
@@ -296,6 +296,7 @@ export const colorSchemes = {
     },
     dark: {
         palette: {
+            mode: 'dark',
             primary: {
                 contrastText: brand[50],
                 light: brand[300],

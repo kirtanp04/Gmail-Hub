@@ -24,6 +24,8 @@ interface AppThemeProps {
 export default function AppThemeProvider(props: AppThemeProps) {
   const { children, disableCustomTheme, themeComponents } = props;
 
+  const mode: "dark" | "light" = "dark";
+
   const theme = React.useMemo(() => {
     return disableCustomTheme
       ? {}
@@ -32,7 +34,6 @@ export default function AppThemeProvider(props: AppThemeProps) {
             colorSchemeSelector: "data-mui-color-scheme",
             cssVarPrefix: "template",
           },
-          colorSchemes,
           typography,
           shadows,
           shape,
@@ -46,7 +47,10 @@ export default function AppThemeProvider(props: AppThemeProps) {
             ...datePickersCustomizations,
             ...themeComponents,
           },
-          palette: colorSchemes.dark.palette,
+          palette:
+            mode === "light"
+              ? { mode: "light", ...colorSchemes.light.palette }
+              : { mode: "dark", ...colorSchemes.dark.palette },
         });
   }, [disableCustomTheme, themeComponents]);
 

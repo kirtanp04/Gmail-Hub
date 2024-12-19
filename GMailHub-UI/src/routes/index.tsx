@@ -1,4 +1,5 @@
 import LoadingPage from "@/components/Loading";
+import PageLayout from "@/layout/PageLayout";
 import { ElementType, lazy, Suspense } from "react";
 import { Outlet, useRoutes } from "react-router-dom";
 
@@ -11,6 +12,7 @@ const Loadable = (Component: ElementType) => (props: any) => {
 };
 
 const LandingPage = Loadable(lazy(() => import("@/pages/LandingPage")));
+const DashBoard = Loadable(lazy(() => import("@/pages/DashBoard")));
 export default function AppRouter() {
   return useRoutes([
     {
@@ -20,6 +22,16 @@ export default function AppRouter() {
         {
           element: <LandingPage />,
           index: true,
+        },
+        {
+          element: <PageLayout />,
+          path: "dashboard",
+          children: [
+            {
+              element: <DashBoard />,
+              index: true,
+            },
+          ],
         },
       ],
     },
