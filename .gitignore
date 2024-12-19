@@ -2,7 +2,7 @@
 GMailHub-UI/node_modules
 GMailHub-UI/dist
 GMailHub-UI/dist-ssr
-GMailHub-UI/env
+GMailHub-UI/.env
 
 GMailHub-Server/node_modules
-GMailHub-Server/env
+GMailHub-Server/.env
