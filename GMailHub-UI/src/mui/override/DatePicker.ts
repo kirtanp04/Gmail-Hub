@@ -13,18 +13,16 @@ export const datePickersCustomizations: PickerComponents<Theme> = {
                 borderRadius: theme.shape.borderRadius,
                 border: `1px solid ${theme.palette.divider}`,
                 backgroundImage: 'none',
-                background: 'hsl(0, 0%, 100%)',
+                background: theme.palette.mode === "light" ? 'hsl(0, 0%, 100%)' : gray[900],
                 boxShadow:
-                    'hsla(220, 30%, 5%, 0.07) 0px 4px 16px 0px, hsla(220, 25%, 10%, 0.07) 0px 8px 16px -5px',
+                    theme.palette.mode === "light" ? 'hsla(220, 30%, 5%, 0.07) 0px 4px 16px 0px, hsla(220, 25%, 10%, 0.07) 0px 8px 16px -5px' :
+                        'hsla(220, 30%, 5%, 0.7) 0px 4px 16px 0px, hsla(220, 25%, 10%, 0.8) 0px 8px 16px -5px',
                 [`& .${menuItemClasses.root}`]: {
                     borderRadius: 6,
                     margin: '0 6px',
                 },
-                ...theme.applyStyles('dark', {
-                    background: gray[900],
-                    boxShadow:
-                        'hsla(220, 30%, 5%, 0.7) 0px 4px 16px 0px, hsla(220, 25%, 10%, 0.8) 0px 8px 16px -5px',
-                }),
+
+
             }),
         },
     },
@@ -33,10 +31,8 @@ export const datePickersCustomizations: PickerComponents<Theme> = {
             spacer: { width: 16 },
             button: ({ theme }) => ({
                 backgroundColor: 'transparent',
-                color: theme.palette.grey[500],
-                ...theme.applyStyles('dark', {
-                    color: theme.palette.grey[400],
-                }),
+                color: theme.palette.mode === "light" ? theme.palette.grey[500] : theme.palette.grey[400],
+
             }),
         },
     },
@@ -52,39 +48,24 @@ export const datePickersCustomizations: PickerComponents<Theme> = {
         styleOverrides: {
             monthButton: ({ theme }) => ({
                 fontSize: theme.typography.body1.fontSize,
-                color: theme.palette.grey[600],
+                color: theme.palette.mode === "light" ? theme.palette.grey[600] : theme.palette.grey[300],
                 padding: theme.spacing(0.5),
                 borderRadius: theme.shape.borderRadius,
                 '&:hover': {
                     backgroundColor: theme.palette.action.hover,
                 },
                 [`&.${pickersMonthClasses.selected}`]: {
-                    backgroundColor: gray[700],
+                    backgroundColor: theme.palette.mode === "light" ? gray[700] : gray[300],
                     fontWeight: theme.typography.fontWeightMedium,
+                    color: theme.palette.mode === "light" ? theme.palette.common.white : theme.palette.common.black
                 },
                 '&:focus': {
-                    outline: `3px solid ${alpha(brand[500], 0.5)}`,
+                    outline: `2px solid ${alpha(brand[500], 0.5)}`,
                     outlineOffset: '2px',
                     backgroundColor: 'transparent',
-                    [`&.${pickersMonthClasses.selected}`]: { backgroundColor: gray[700] },
+                    [`&.${pickersMonthClasses.selected}`]: { backgroundColor: theme.palette.mode === "light" ? gray[700] : gray[300] },
                 },
-                ...theme.applyStyles('dark', {
-                    color: theme.palette.grey[300],
-                    '&:hover': {
-                        backgroundColor: theme.palette.action.hover,
-                    },
-                    [`&.${pickersMonthClasses.selected}`]: {
-                        color: theme.palette.common.black,
-                        fontWeight: theme.typography.fontWeightMedium,
-                        backgroundColor: gray[300],
-                    },
-                    '&:focus': {
-                        outline: `3px solid ${alpha(brand[500], 0.5)}`,
-                        outlineOffset: '2px',
-                        backgroundColor: 'transparent',
-                        [`&.${pickersMonthClasses.selected}`]: { backgroundColor: gray[300] },
-                    },
-                }),
+
             }),
         },
     },
@@ -92,7 +73,7 @@ export const datePickersCustomizations: PickerComponents<Theme> = {
         styleOverrides: {
             yearButton: ({ theme }) => ({
                 fontSize: theme.typography.body1.fontSize,
-                color: theme.palette.grey[600],
+                color: theme.palette.mode === "light" ? theme.palette.grey[600] : theme.palette.grey[300],
                 padding: theme.spacing(0.5),
                 borderRadius: theme.shape.borderRadius,
                 height: 'fit-content',
@@ -100,32 +81,17 @@ export const datePickersCustomizations: PickerComponents<Theme> = {
                     backgroundColor: theme.palette.action.hover,
                 },
                 [`&.${pickersYearClasses.selected}`]: {
-                    backgroundColor: gray[700],
+                    backgroundColor: theme.palette.mode === "light" ? gray[700] : gray[300],
                     fontWeight: theme.typography.fontWeightMedium,
+                    color: theme.palette.mode === "light" ? theme.palette.common.white : theme.palette.common.black
                 },
                 '&:focus': {
-                    outline: `3px solid ${alpha(brand[500], 0.5)}`,
+                    outline: `2px solid ${alpha(brand[500], 0.5)}`,
                     outlineOffset: '2px',
                     backgroundColor: 'transparent',
-                    [`&.${pickersYearClasses.selected}`]: { backgroundColor: gray[700] },
+                    [`&.${pickersYearClasses.selected}`]: { backgroundColor: theme.palette.mode === "light" ? gray[700] : gray[300] },
                 },
-                ...theme.applyStyles('dark', {
-                    color: theme.palette.grey[300],
-                    '&:hover': {
-                        backgroundColor: theme.palette.action.hover,
-                    },
-                    [`&.${pickersYearClasses.selected}`]: {
-                        color: theme.palette.common.black,
-                        fontWeight: theme.typography.fontWeightMedium,
-                        backgroundColor: gray[300],
-                    },
-                    '&:focus': {
-                        outline: `3px solid ${alpha(brand[500], 0.5)}`,
-                        outlineOffset: '2px',
-                        backgroundColor: 'transparent',
-                        [`&.${pickersYearClasses.selected}`]: { backgroundColor: gray[300] },
-                    },
-                }),
+
             }),
         },
     },
@@ -133,39 +99,22 @@ export const datePickersCustomizations: PickerComponents<Theme> = {
         styleOverrides: {
             root: ({ theme }) => ({
                 fontSize: theme.typography.body1.fontSize,
-                color: theme.palette.grey[600],
+                color: theme.palette.mode === "light" ? theme.palette.grey[600] : theme.palette.grey[300],
                 padding: theme.spacing(0.5),
                 borderRadius: theme.shape.borderRadius,
-                '&:hover': {
-                    backgroundColor: theme.palette.action.hover,
-                },
+
                 [`&.${pickersDayClasses.selected}`]: {
-                    backgroundColor: gray[700],
+                    backgroundColor: theme.palette.mode === "light" ? gray[700] : gray[300],
                     fontWeight: theme.typography.fontWeightMedium,
+                    color: theme.palette.mode === "light" ? theme.palette.common.white : theme.palette.common.black,
                 },
                 '&:focus': {
-                    outline: `3px solid ${alpha(brand[500], 0.5)}`,
+                    outline: `2px solid ${alpha(brand[500], 0.5)}`,
                     outlineOffset: '2px',
                     backgroundColor: 'transparent',
-                    [`&.${pickersDayClasses.selected}`]: { backgroundColor: gray[700] },
+                    [`&.${pickersYearClasses.selected}`]: { backgroundColor: theme.palette.mode === "light" ? gray[700] : gray[300] },
                 },
-                ...theme.applyStyles('dark', {
-                    color: theme.palette.grey[300],
-                    '&:hover': {
-                        backgroundColor: theme.palette.action.hover,
-                    },
-                    [`&.${pickersDayClasses.selected}`]: {
-                        color: theme.palette.common.black,
-                        fontWeight: theme.typography.fontWeightMedium,
-                        backgroundColor: gray[300],
-                    },
-                    '&:focus': {
-                        outline: `3px solid ${alpha(brand[500], 0.5)}`,
-                        outlineOffset: '2px',
-                        backgroundColor: 'transparent',
-                        [`&.${pickersDayClasses.selected}`]: { backgroundColor: gray[300] },
-                    },
-                }),
+
             }),
         },
     },

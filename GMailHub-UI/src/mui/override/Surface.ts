@@ -37,11 +37,9 @@ export const surfacesCustomizations: Components<Theme> = {
             root: ({ theme }) => ({
                 border: 'none',
                 borderRadius: 8,
-                '&:hover': { backgroundColor: gray[50] },
+                '&:hover': { backgroundColor: theme.palette.mode === "light" ? gray[50] : gray[800] },
                 '&:focus-visible': { backgroundColor: 'transparent' },
-                ...theme.applyStyles('dark', {
-                    '&:hover': { backgroundColor: gray[800] },
-                }),
+
             }),
         },
     },

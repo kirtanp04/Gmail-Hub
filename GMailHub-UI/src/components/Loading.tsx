@@ -3,7 +3,11 @@ import { Box, LinearProgress, styled } from "@mui/material";
 export default function LoadingPage() {
   return (
     <LoaderWrapper>
-      <LinearProgress />
+      <LinearProgress
+        sx={{
+          height: "4px",
+        }}
+      />
     </LoaderWrapper>
   );
 }

@@ -102,24 +102,16 @@ export const dataDisplayCustomizations: Components<Theme> = {
               color: "default",
             },
             style: {
-              borderColor: gray[200],
-              backgroundColor: gray[100],
+              borderColor:
+                theme.palette.mode === "light" ? gray[200] : gray[700],
+              backgroundColor:
+                theme.palette.mode === "light" ? gray[100] : gray[800],
               [`& .${chipClasses.label}`]: {
-                color: gray[500],
+                color: theme.palette.mode === "light" ? gray[500] : gray[300],
               },
               [`& .${chipClasses.icon}`]: {
-                color: gray[500],
+                color: theme.palette.mode === "light" ? gray[500] : gray[300],
               },
-              ...theme.applyStyles("dark", {
-                borderColor: gray[700],
-                backgroundColor: gray[800],
-                [`& .${chipClasses.label}`]: {
-                  color: gray[300],
-                },
-                [`& .${chipClasses.icon}`]: {
-                  color: gray[300],
-                },
-              }),
             },
           },
           {
@@ -127,24 +119,16 @@ export const dataDisplayCustomizations: Components<Theme> = {
               color: "success",
             },
             style: {
-              borderColor: green[200],
-              backgroundColor: green[50],
+              borderColor:
+                theme.palette.mode === "light" ? green[200] : green[800],
+              backgroundColor:
+                theme.palette.mode === "light" ? green[50] : green[900],
               [`& .${chipClasses.label}`]: {
-                color: green[500],
+                color: theme.palette.mode === "light" ? green[500] : green[300],
               },
               [`& .${chipClasses.icon}`]: {
-                color: green[500],
+                color: theme.palette.mode === "light" ? green[500] : green[300],
               },
-              ...theme.applyStyles("dark", {
-                borderColor: green[800],
-                backgroundColor: green[900],
-                [`& .${chipClasses.label}`]: {
-                  color: green[300],
-                },
-                [`& .${chipClasses.icon}`]: {
-                  color: green[300],
-                },
-              }),
             },
           },
           {
@@ -152,24 +136,15 @@ export const dataDisplayCustomizations: Components<Theme> = {
               color: "error",
             },
             style: {
-              borderColor: red[100],
-              backgroundColor: red[50],
+              borderColor: theme.palette.mode === "light" ? red[100] : red[800],
+              backgroundColor:
+                theme.palette.mode === "light" ? red[50] : red[900],
               [`& .${chipClasses.label}`]: {
-                color: red[500],
+                color: theme.palette.mode === "light" ? red[500] : red[200],
               },
               [`& .${chipClasses.icon}`]: {
-                color: red[500],
+                color: theme.palette.mode === "light" ? red[500] : red[300],
               },
-              ...theme.applyStyles("dark", {
-                borderColor: red[800],
-                backgroundColor: red[900],
-                [`& .${chipClasses.label}`]: {
-                  color: red[200],
-                },
-                [`& .${chipClasses.icon}`]: {
-                  color: red[300],
-                },
-              }),
             },
           },
           {

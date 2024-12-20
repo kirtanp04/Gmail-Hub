@@ -7,16 +7,18 @@ export const feedbackCustomizations: Components<Theme> = {
     styleOverrides: {
       root: ({ theme }) => ({
         borderRadius: 10,
-        backgroundColor: orange[100],
+        backgroundColor:
+          theme.palette.mode === "light"
+            ? orange[100]
+            : `${alpha(orange[900], 0.5)}`,
         color: theme.palette.text.primary,
-        border: `1px solid ${alpha(orange[300], 0.5)}`,
+        border:
+          theme.palette.mode === "light"
+            ? `1px solid ${alpha(orange[300], 0.5)}`
+            : `1px solid ${alpha(orange[800], 0.5)}`,
         "& .MuiAlert-icon": {
           color: orange[500],
         },
-        ...theme.applyStyles("dark", {
-          backgroundColor: `${alpha(orange[900], 0.5)}`,
-          border: `1px solid ${alpha(orange[800], 0.5)}`,
-        }),
       }),
     },
   },
@@ -36,10 +38,7 @@ export const feedbackCustomizations: Components<Theme> = {
       root: ({ theme }) => ({
         height: 8,
         borderRadius: 8,
-        backgroundColor: gray[200],
-        ...theme.applyStyles("dark", {
-          backgroundColor: gray[800],
-        }),
+        backgroundColor: theme.palette.mode === "light" ? gray[200] : gray[800],
       }),
     },
   },

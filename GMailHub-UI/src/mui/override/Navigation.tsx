@@ -81,6 +81,7 @@ export const navigationCustomizations: Components<Theme> = {
         [`&.${selectClasses.focused}`]: {
           outlineOffset: 0,
           borderColor: theme.palette.mode === "light" ? gray[400] : gray[900],
+          outline: `2px solid ${alpha(brand[500], 0.5)}`,
         },
         "&:before, &:after": {
           display: "none",

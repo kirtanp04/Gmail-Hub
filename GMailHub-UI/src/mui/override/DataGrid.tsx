@@ -80,43 +80,33 @@ export const dataGridCustomizations: DataGridComponents<Theme> = {
       }),
       iconButtonContainer: ({ theme }) => ({
         [`& .${iconButtonClasses.root}`]: {
+          color: theme.palette.mode === "light" ? "" : gray[50],
           border: "none",
           backgroundColor: "transparent",
           "&:hover": {
-            backgroundColor: alpha(theme.palette.action.selected, 0.3),
+            backgroundColor:
+              theme.palette.mode === "light"
+                ? alpha(theme.palette.action.selected, 0.3)
+                : gray[800],
           },
           "&:active": {
-            backgroundColor: gray[200],
+            backgroundColor:
+              theme.palette.mode === "light" ? gray[200] : gray[900],
           },
-          ...theme.applyStyles("dark", {
-            color: gray[50],
-            "&:hover": {
-              backgroundColor: gray[800],
-            },
-            "&:active": {
-              backgroundColor: gray[900],
-            },
-          }),
         },
       }),
       menuIconButton: ({ theme }) => ({
         border: "none",
+        color: theme.palette.mode === "light" ? "" : gray[50],
         backgroundColor: "transparent",
         "&:hover": {
-          backgroundColor: gray[100],
+          backgroundColor:
+            theme.palette.mode === "light" ? gray[100] : gray[800],
         },
         "&:active": {
-          backgroundColor: gray[200],
+          backgroundColor:
+            theme.palette.mode === "light" ? gray[200] : gray[900],
         },
-        ...theme.applyStyles("dark", {
-          color: gray[50],
-          "&:hover": {
-            backgroundColor: gray[800],
-          },
-          "&:active": {
-            backgroundColor: gray[900],
-          },
-        }),
       }),
       filterForm: ({ theme }) => ({
         gap: theme.spacing(1),
